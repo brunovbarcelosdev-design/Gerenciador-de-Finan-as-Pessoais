@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>SisFinasças</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class=" sidebar-logo">
+                <img src="logo.png" alt="image-logo"/>
+                <h1>SisFinasças</h1>
+            </div>
+            
+            <div class="sidebar-nav"> 
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Transação</a></li>
+                    <li><a href="#">Analiticos</a></li>
+                    <li><a href="#">Metas</a></li>
+                </ul>
+            </div> 
+
+            <div class="sidebar-footer">
+                <p>Configurações</p>
+                <div class="perfil">
+                    <img src="imageperfil.png" alt="image-perfil"/>
+                    <div>
+                        <h5>Karen Barcelos</h5>
+                        <p>Plano Pro</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="content-header">
+                <div>
+                    <H2>Visão Geral </H2>
+                    <p>Bem-vindo de volta, aqui está seu resumo financeiro.</p>
+                </div>
+                <div>
+                    <button class="button-export">Export</button>
+                    <button class="button-transação">Add Transação</button>
+                </div>
+            </div>
+
+            <div class="content-cards">
+                <div class="cards">
+                    <p>Saldo Total</p>
+                    <h3>R$12,500.00</h3>
+                    <p>2,4 vs mês passado</p>
+                </div>
+                
+                <div class="cards">
+                    <p>Renda mensal</p>
+                    <h3 class="renda">+R$5,600.00</h3>
+                    <p>1,6 vs mês passado</p>
+                </div>
+                
+                <div class="cards">
+                    <p>Despesa mensal</p>
+                    <h3 class="despesa">-R$3,300.00</h3>
+                    <p>-0,8 vs mês passado</p>
+                </div>
+            </div>
+
+            <div class="botton-section">
+                <div class="grafico">
+                    <canvas id="meuGrafico"></canvas>
+                </div>
+
+                <div class="transações">
+                    <h4>Transações Recentes</h4>
+                    <a href="#">Ver tudo</a>
+
+                    <div class="transações-item">
+                        <div>
+                            <p>Mercado</p>
+                            <p class="info"> compras - 12/03</p>
+                        </div>    
+                        <p class="valor"> - R$1.100,00</p>
+                    </div>
+
+                    <div class="transações-item">
+                        <div>
+                            <p>Salário de Depósito</p>
+                            <p class="info">Renda - 10/03</p>
+                        </div>
+                        <p class="valor-entrada">R$5,600.00</p>
+                    </div>
+
+                    <div class="transações-item">
+                        <div>
+                            <p>Cartão de crédito</p>
+                            <p class="info">Gastos - 09/03</p>
+                        </div>
+                        <p class="valor">-R$2.550,36</p>
+                    </div>
+
+                    <div class="transações-item">
+                        <div>
+                             <p>Farmácia</p>
+                            <p class="info">Remédios</p>
+                        </div>
+                        <p class="valor">-R$333.00</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+</body>
+</html>
