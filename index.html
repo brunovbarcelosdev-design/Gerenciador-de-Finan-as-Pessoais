@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>SisFinasças</title>
+    <title>SisFinanças</title>
 </head>
+
 <body>
     <div class="container">
         <aside class="sidebar">
             <div class=" sidebar-logo">
-                <img src="./assets/img/logo.png" alt="image-logo"/>
+                <img src="./assets/img/logo.png" alt="image-logo" />
                 <h1>SisFinasças</h1>
             </div>
-            
-            <div class="sidebar-nav"> 
+
+            <div class="sidebar-nav">
                 <ul>
                     <li><a href="#">Dashboard</a></li>
                     <li><a href="#">Transação</a></li>
                     <li><a href="#">Analiticos</a></li>
                     <li><a href="#">Metas</a></li>
                 </ul>
-            </div> 
+            </div>
 
             <div class="sidebar-footer">
                 <p>Configurações</p>
                 <div class="perfil">
-                    <img src="./assets/img/imageperfil.png" alt="image-perfil"/>
+                    <img src="./assets/img/imageperfil.png" alt="image-perfil" />
                     <div>
                         <h5>Karen Barcelos</h5>
                         <p>Plano Pro</p>
@@ -39,31 +41,31 @@
         <main class="content">
             <div class="content-header">
                 <div>
-                    <H2>Visão Geral </H2>
+                    <h2>Visão Geral </h2>
                     <p>Bem-vindo de volta, aqui está seu resumo financeiro.</p>
                 </div>
                 <div>
                     <button class="button-export">Export</button>
-                    <button class="button-transação">Add Transação</button>
+                    <button id="btnAddTransacao" class="button-transação">Add Transação</button>
                 </div>
             </div>
 
             <div class="content-cards">
                 <div class="cards">
                     <p>Saldo Total</p>
-                    <h3 class="saldo">R$12,500.00</h3>
+                    <h3 class="saldo">R$0,00</h3>
                     <p>2,4 vs mês passado</p>
                 </div>
-                
+
                 <div class="cards">
                     <p>Renda mensal</p>
-                    <h3 class="renda">+R$5,600.00</h3>
+                    <h3 class="renda">+R$0,00</h3>
                     <p>1,6 vs mês passado</p>
                 </div>
-                
+
                 <div class="cards">
                     <p>Despesa mensal</p>
-                    <h3 class="despesa">-R$3,300.00</h3>
+                    <h3 class="despesa">-R$0,00</h3>
                     <p>-0,8 vs mês passado</p>
                 </div>
             </div>
@@ -77,42 +79,66 @@
                     <h4>Transações Recentes</h4>
                     <a href="#">Ver tudo</a>
 
-                    <div class="transações-item">
-                        <div>
-                            <p>Mercado</p>
-                            <p class="info"> compras - 12/03</p>
-                        </div>    
-                        <p class="valor"> - R$1.100,00</p>
-                    </div>
-
-                    <div class="transações-item">
-                        <div>
-                            <p>Salário de Depósito</p>
-                            <p class="info">Renda - 10/03</p>
+                    <div id="quadroTransação">
+                        <div class="transações-item">
+                            <div>
+                                <p>Mercado</p>
+                                <p class="info"> compras - 12/03/2026</p>
+                            </div>
+                            <p class="valor"> - R$1.100,00</p>
                         </div>
-                        <p class="valor-entrada">R$5,600.00</p>
-                    </div>
 
-                    <div class="transações-item">
-                        <div>
-                            <p>Cartão de crédito</p>
-                            <p class="info">Gastos - 09/03</p>
+                        <div class="transações-item">
+                            <div>
+                                <p>Salário de Depósito</p>
+                                <p class="info">Renda - 10/03/2026</p>
+                            </div>
+                            <p class="valor-entrada">R$5.600,00</p>
                         </div>
-                        <p class="valor">-R$2.550,36</p>
-                    </div>
 
-                    <div class="transações-item">
-                        <div>
-                             <p>Farmácia</p>
-                            <p class="info">Remédios</p>
+                        <div class="transações-item">
+                            <div>
+                                <p>Cartão de crédito</p>
+                                <p class="info">Gastos - 09/03/2026</p>
+                            </div>
+                            <p class="valor">-R$2.550,36</p>
                         </div>
-                        <p class="valor">-R$333.00</p>
+
+                        <div class="transações-item">
+                            <div>
+                                <p>Farmácia</p>
+                                <p class="info">Remédios - 08/03/2026</p>
+                            </div>
+                            <p class="valor">-R$333,00</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    
 
+    <div id="modalTransacao" class="modalTransacao">
+        <div class="modal-content">
+            <div id="fecharModal" class="fecharModal">
+                <button type="button" id="btnFecharModal">X</button>
+            </div>
+            <form id="formTransacao" class="formTransacao">
+                <label for="tipo" class="form-label">Tipo de Transação:</label>
+                <select id="tipo" name="tipo" class="form-select">
+                    <option value="Despesa">Despesa</option>
+                    <option value="Receita">Receita</option>
+                </select>
+                <input type="text" id="categoria" class="form-input" name="categoria"
+                    placeholder="Categoria da transação">
+                <input type="text" id="descricao" class="form-input" name="descricao"
+                    placeholder="Descrição da transação">
+                <input type="number" id="valor" class="form-input" name="valor" placeholder="Valor da transação">
+                <input type="date" id="data" class="form-input" name="data">
+                <button type="submit" class="form-button">Adicionar Transação</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="./assets/js/app.js"></script>
 </body>
+
 </html>
